@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
+#To be run using the Batch Mode tool in Astos
 import pandas as pd
 import math
 import pymap3d as pm
