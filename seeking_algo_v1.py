@@ -15,18 +15,18 @@ df = df.astype(float) #Convert to float for math operations
 idx = len(df)-1
 
 cntr_in=[175,84]
-# The local coordinate origin
-lat0 =  df['Latitude'].iloc[-1] # lat first row of astos output
-lon0 =  df['Longitude'].iloc[-1] #long first row of astos output
-h0 = 0     # meters
+#The local coordinate origin
+lat0 =  df['Latitude'].iloc[-1] #Lat first row of astos output
+lon0 =  df['Longitude'].iloc[-1] #Long first row of astos output
+h0 = 0     #height in meters
 
 theta = np.radians(cntr_in[0]) #to deal with sign convention for different azimuths
 
-# The point of interest  
-lat = 57.6215123 # Where I want to land Longitude %%%
-lon = -93.7042073 # Where I want to land Latitude %%% 
+#The point of interest  
+lat = 57.6215123 #Where I want to land Longitude %%%
+lon = -93.7042073 #Where I want to land Latitude %%% 
 
-# cntr_pt simulation is (0,0) in ENU coordinates
+#cntr_pt simulation is (0,0) in ENU coordinates
 #ENU grid centered at cntr_pt of [Az,Incl] inputs, calculate distance from where I want to land
 nom_pt = pm.geodetic2enu(lat, lon, h0, lat0, lon0, h0) 
 
