@@ -15,7 +15,8 @@ df = df.astype(float) #Convert to float for math operations
 
 idx = len(df)-1
 
-cntr_in=[175,84]
+cntr_in=[175,84] #Azimuth and Incliantion of nominal landing point
+
 #The local coordinate origin
 lat0 =  df['Latitude'].iloc[-1] #Lat first row of astos output
 lon0 =  df['Longitude'].iloc[-1] #Long first row of astos output
@@ -48,7 +49,6 @@ if len(df) >= 2:
     pt_nom1 =  pm.geodetic2enu(lat, lon, h0, lat0, lon0, h0) 
 
     #x Axis changes = Azimuth changes
-    #(Change in Azimuth)*(Difference between distance wanted landing point and last sim)/(Difference in distance between center [Az,Incl] point and first guess)
     x=abs((df['Azimuth'].iloc[0]-df['Azimuth'].iloc[1])*(pt_nom1[0])/(pt_dis[0]))
 
     #y Axis changes = Inclination changes
